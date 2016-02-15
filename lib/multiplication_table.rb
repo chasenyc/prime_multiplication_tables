@@ -4,7 +4,7 @@ class MultiplicationTable
 
   attr_reader :numbers, :table
 
-  def initialize(size)
+  def initialize(size=10)
     size ||= 10
     @numbers = Prime.first(size)
     @table = Array.new(numbers.length + 1) { Array.new(numbers.length+1, nil) }
