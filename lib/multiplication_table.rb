@@ -30,11 +30,15 @@ class MultiplicationTable
 
   def generate_cells
     generate_table_edges
-    (1..numbers.length).each do |idx|
-      (1..numbers.length).each do |idy|
-        if table[idx][idy] == nil
-          table[idx][idy] = table[0][idy] * table[idx][0]
+
+    (1..numbers.length).each do |row|
+      col = row
+      until col > numbers.length
+        if table[row][col] == nil
+          table[row][col] = table[0][col] * table[row][0]
+          table[col][row] = table[0][col] * table[row][0] unless row == col
         end
+        col += 1
       end
     end
   end
@@ -48,3 +52,6 @@ class MultiplicationTable
     (numbers.max ** 2).to_s.length + 2
   end
 end
+
+x = MultiplicationTable.new(4)
+x.render
