@@ -10,7 +10,12 @@ class MultiplicationTable
     @table = Array.new(numbers.length + 1) { Array.new(numbers.length, nil) }
   end
 
-  
+  def generate_table_edges
+    table[0] = [" "] + numbers
+    numbers.each_with_index do |num, idx|
+      table[(idx + 1)][0] = num
+    end
+  end
 
   def render_cell(num)
     num.to_s.center(cell_width)
