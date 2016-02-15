@@ -10,6 +10,22 @@ class MultiplicationTable
     @table = Array.new(numbers.length + 1) { Array.new(numbers.length, nil) }
   end
 
+  def render
+    generate_table
+
+    table.each do |row|
+      row.each do |cell|
+        print render_cell(cell)
+      end
+      print "\n"
+    end
+  end
+
+  def generate_table
+    generate_table_edges
+    generate_cells
+  end
+
   def generate_table_edges
     table[0] = [" "] + numbers
     numbers.each_with_index do |num, idx|
