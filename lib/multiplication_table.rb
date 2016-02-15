@@ -17,6 +17,16 @@ class MultiplicationTable
     end
   end
 
+  def generate_cells
+    (1..numbers.length).each do |idx|
+      (1..numbers.length).each do |idy|
+        if table[idx][idy] == nil
+          table[idx][idy] = table[0][idy] * table[idx][0]
+        end
+      end
+    end
+  end
+
   def render_cell(num)
     num.to_s.center(cell_width)
   end
