@@ -11,7 +11,7 @@ class MultiplicationTable
   end
 
   def render
-    generate_table
+    generate_cells
 
     table.each do |row|
       row.each do |cell|
@@ -19,11 +19,6 @@ class MultiplicationTable
       end
       print "\n"
     end
-  end
-
-  def generate_table
-    generate_table_edges
-    generate_cells
   end
 
   def generate_table_edges
@@ -34,6 +29,7 @@ class MultiplicationTable
   end
 
   def generate_cells
+    generate_table_edges
     (1..numbers.length).each do |idx|
       (1..numbers.length).each do |idy|
         if table[idx][idy] == nil

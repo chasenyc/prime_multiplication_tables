@@ -15,4 +15,13 @@ describe MultiplicationTable do
     expect(table_one.table[4][0]).to eq 7
     expect(table_one.table[2][2]).to eq nil
   end
+
+  it 'generate_cells should fill the table' do
+    table_one.generate_cells
+    expect(table_one.table[2][2]).to eq 9
+    expect(table_one.table[4][4]).to eq 49
+    expect(table_one.table[1][2]).to eq 6
+  end
+
+  
 end
