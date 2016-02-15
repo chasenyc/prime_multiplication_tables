@@ -29,4 +29,13 @@ describe MultiplicationTable do
     expect(table_two.send(:cell_width)).to eq 5
   end
 
+  it 'render_cell returns a stringified num with padding for the sides' do
+    expect(table_one.render_cell(1)).to eq ' 1  '
+    expect(table_two.render_cell(1)).to eq '  1  '
+  end
+
+  it 'render should render a table' do
+    expect(table_one.render).to eq [[" ", 2, 3, 5, 7], [2, 4, 6, 10, 14], [3, 6, 9, 15, 21], [5, 10, 15, 25, 35], [7, 14, 21, 35, 49]]
+  end
+
 end
