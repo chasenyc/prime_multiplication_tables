@@ -7,7 +7,7 @@ class MultiplicationTable
   def initialize(size)
     size ||= 10
     @numbers = Prime.first(size)
-    @table = Array.new(numbers.length + 1) { Array.new(numbers.length, nil) }
+    @table = Array.new(numbers.length + 1) { Array.new(numbers.length+1, nil) }
   end
 
   def render
